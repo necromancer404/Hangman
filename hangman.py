@@ -17,22 +17,23 @@ def hangman():
 	attempts= 3
 
 
-	print("Hangman")
+	print("Welcome to Hangman\n created by necromancer")
 	while True:
 		print(display_word(word,guessed_letters))
-		guess=input("Take a guess").lower()
+		guess=input("Take a guess: \n").lower()
 		if guess in guessed_letters:
-			print("already guessed")
+			print("You Already guessed that alphabet")
 		elif guess in word:
 			guessed_letters.append(guess)
 		else:
 			guessed_letters.append(guess)
 			attempts -=1
-			print("wrong you have x attempts left")
+			print("That's incorrect! you have",attempts," attempts left")
 		if display_word(word,guessed_letters)==word:
-			print("congo")
+			print("Congratulations! That's correct.The word was",word)
+			break
 		if attempts ==0:
-			print("haha loser")
+			print("Your attempts have finished and you have lost the game.")
 			break
 hangman()
 		
